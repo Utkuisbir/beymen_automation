@@ -10,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import pages.HomePage;
+import pages.ProductPage;
 
 public class BeymenTest {
     public static void Sleep(String[] args) {
@@ -40,6 +41,8 @@ public class BeymenTest {
 
     @Test
     public void beymenWebsiteAutomation() {
+
+
 
         List<String> excelData = null;
 
@@ -87,6 +90,16 @@ public class BeymenTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        ProductPage productPage = new ProductPage(driver);
+
+        try {
+            productPage.selectRandomProductAndAddToCart();
+        } catch (IOException e) {
+            System.out.println("selectRandomProductAndAddToCart error");
+        }
+        
+
 
     }
 }
